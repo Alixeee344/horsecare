@@ -1,0 +1,1948 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7c8da">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="HorseCare">
+<title>HorseCare</title>
+
+<style>
+:root{
+  --pink:#f7c8da;
+  --pink2:#fff0f5;
+  --rose:#a9577c;
+  --ink:#5b3550;
+  --muted:#9a7488;
+  --line:#efd8e3;
+  --white:#fff;
+  --shadow:0 10px 28px rgba(169,87,124,.12)
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:linear-gradient(#fff8fb,#fff);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink)
+}
+
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.app{
+  max-width:560px;
+  margin:auto;
+  min-height:100vh;
+  padding:18px 18px 110px
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center
+}
+
+.logo{
+  width:54px;
+  height:54px;
+  border-radius:18px;
+  background:var(--pink);
+  display:grid;
+  place-items:center;
+  font-size:30px;
+  box-shadow:var(--shadow)
+}
+
+h1,h2,h3,p{margin:0}
+
+.brand h1{font-size:28px}
+
+.brand p{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:2px
+}
+
+.gear{
+  width:48px;
+  height:48px;
+  border:0;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:var(--shadow);
+  font-size:22px
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.2em;
+  font-weight:800;
+  color:var(--rose);
+  text-transform:uppercase;
+  margin-bottom:8px
+}
+
+.title{
+  font-size:34px;
+  line-height:1.05;
+  margin-bottom:8px
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-bottom:18px
+}
+
+.card{
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  margin-bottom:16px
+}
+
+.hero{
+  background:linear-gradient(135deg,#ffd9e8,#fff3f8);
+  display:flex;
+  align-items:center;
+  gap:16px
+}
+
+.horse{
+  width:92px;
+  height:92px;
+  border-radius:24px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  font-size:52px
+}
+
+.hero strong{font-size:24px}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.stat{
+  background:#fff7fa;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px
+}
+
+.stat b{
+  display:block;
+  font-size:22px;
+  margin-top:6px
+}
+
+.section{display:none}
+.section.active{display:block}
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between
+}
+
+.stack{display:grid;gap:10px}
+
+.field{display:grid;gap:6px}
+
+.field label{
+  font-size:13px;
+  font-weight:700;
+  color:var(--muted)
+}
+
+input,select,textarea{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  padding:12px 13px;
+  color:var(--ink);
+  font-size:16px;
+  outline:none
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--rose);
+  box-shadow:0 0 0 3px rgba(169,87,124,.12)
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical
+}
+
+.btn{
+  border:0;
+  border-radius:15px;
+  padding:12px 16px;
+  background:var(--rose);
+  color:#fff;
+  font-weight:800;
+  min-height:44px
+}
+
+.list{
+  display:grid;
+  gap:10px
+}
+
+.item{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:16px;
+  padding:12px
+}
+
+.item small{color:var(--muted)}
+
+.item .actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:8px
+}
+
+.delete{
+  border:0;
+  background:#fff0f5;
+  color:var(--rose);
+  border-radius:10px;
+  padding:7px 10px
+}
+
+.nav{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:min(560px,100%);
+  background:rgba(255,255,255,.96);
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  padding:8px 6px calc(8px + env(safe-area-inset-bottom));
+  z-index:30;
+  backdrop-filter:blur(14px)
+}
+
+.nav button{
+  border:0;
+  background:transparent;
+  color:#aa8799;
+  font-size:10px;
+  font-weight:800;
+  padding:8px 2px;
+  border-radius:14px;
+  min-width:0
+}
+
+.nav button span{
+  display:block;
+  font-size:21px;
+  margin-bottom:2px
+}
+
+.nav button.active{
+  background:#fff0f5;
+  color:var(--rose)
+}
+
+/* BOX */
+
+.stall{
+  position:relative;
+  aspect-ratio:4/3;
+  border-radius:24px;
+  overflow:hidden;
+  background:linear-gradient(#f4e4d5 0 57%,#d8b88d 57%);
+  border:1px solid #e8ccb0
+}
+
+.stall:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,transparent 48%,rgba(120,85,60,.08) 49% 51%,transparent 52%),
+    linear-gradient(transparent 34%,rgba(120,85,60,.07) 35% 37%,transparent 38%)
+}
+
+.wall{
+  position:absolute;
+  left:8%;
+  right:8%;
+  top:8%;
+  height:48%;
+  border:8px solid #a97a58;
+  border-bottom:0;
+  border-radius:8px 8px 0 0
+}
+
+.feedbox{
+  position:absolute;
+  left:9%;
+  top:40%;
+  width:31%;
+  height:18%;
+  background:#8d5f43;
+  border:5px solid #68432e;
+  border-radius:8px 8px 18px 18px
+}
+
+.hay{
+  position:absolute;
+  left:12%;
+  top:45%;
+  font-size:30px
+}
+
+.bed{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:43%;
+  background:linear-gradient(165deg,#e7c998,#d6b37f)
+}
+
+.bed:after{
+  content:"";
+  position:absolute;
+  inset:12% 10%;
+  background:repeating-linear-gradient(
+    165deg,
+    rgba(255,255,255,.18) 0 5px,
+    transparent 5px 13px
+  );
+  border-radius:50%
+}
+
+.hot{
+  position:absolute;
+  border:0;
+  border-radius:999px;
+  background:var(--rose);
+  color:#fff;
+  font-weight:800;
+  padding:10px 12px;
+  box-shadow:0 8px 18px rgba(87,44,70,.22);
+  z-index:3
+}
+
+.hot.feed{
+  left:8%;
+  top:29%
+}
+
+.hot.bedding{
+  right:8%;
+  bottom:13%
+}
+
+.legend{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:10px
+}
+
+.checks{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px
+}
+
+.check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:10px;
+  background:#fff
+}
+
+.check input{width:auto}
+
+/* FINESTRE */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(71,39,58,.34);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:14px;
+  z-index:50
+}
+
+.modal.open{display:flex}
+
+.sheet{
+  width:min(540px,100%);
+  background:#fff;
+  border-radius:26px;
+  padding:18px;
+  max-height:82vh;
+  overflow:auto
+}
+
+.sheethead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px
+}
+
+.close{
+  border:0;
+  background:#fff0f5;
+  color:var(--rose);
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  font-size:20px
+}
+
+.empty{
+  color:var(--muted);
+  font-size:14px;
+  text-align:center;
+  padding:14px
+}
+
+.notice{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:8px
+}
+
+@media(max-width:380px){
+  .app{padding-left:12px;padding-right:12px}
+  .brand h1{font-size:24px}
+  .title{font-size:30px}
+  .nav button{font-size:9px}
+  .nav button span{font-size:19px}
+  .hot{font-size:12px;padding:8px 10px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="top">
+  <div class="brand">
+    <div class="logo">🐴</div>
+    <div>
+      <h1>HorseCare</h1>
+      <p>Il mondo del tuo cavallo, in ordine ♡</p>
+    </div>
+  </div>
+  <button class="gear" id="backupBtn">⚙️</button>
+</header>
+
+<!-- HOME -->
+
+<section class="section active" data-page="home">
+
+<div class="eyebrow">Oggi</div>
+
+<h2 class="title">
+Ciao, <span id="homeHorse">il tuo cavallo</span> 🐴
+</h2>
+
+<p class="subtitle">
+Tutto quello che ti serve, in un solo posto.
+</p>
+
+<div class="card hero">
+
+<div class="horse">🐴</div>
+
+<div>
+<small>IL MIO CAVALLO</small><br>
+<strong id="heroHorse">Da compilare</strong>
+<p class="notice">
+Aggiorna la scheda nella sezione Cavallo.
+</p>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="stat">
+Prossimi appuntamenti
+<b id="statAgenda">0</b>
+</div>
+
+<div class="stat">
+Spese registrate
+<b id="statSpese">0</b>
+</div>
+
+<div class="stat">
+Pasti nel box
+<b id="statFeed">0</b>
+</div>
+
+<div class="stat">
+Pulizie lettiera
+<b id="statBed">0</b>
+</div>
+
+</div>
+
+</section>
+
+<!-- CAVALLO -->
+
+<section class="section" data-page="horse">
+
+<div class="eyebrow">La sua storia</div>
+
+<h2 class="title">Il mio cavallo 🐴</h2>
+
+<p class="subtitle">
+La sua scheda personale.
+</p>
+
+<div class="card stack">
+
+<div class="field">
+<label>Nome</label>
+<input id="horseName" placeholder="Nome del cavallo">
+</div>
+
+<div class="field">
+<label>Razza</label>
+<input id="horseBreed" placeholder="Razza">
+</div>
+
+<div class="field">
+<label>Data di nascita</label>
+<input id="horseBirth" type="date">
+</div>
+
+<div class="field">
+<label>Mantello</label>
+<input id="horseCoat" placeholder="Es. baio">
+</div>
+
+<div class="field">
+<label>Note</label>
+<textarea id="horseNotes"
+placeholder="Informazioni importanti"></textarea>
+</div>
+
+<button class="btn" id="saveHorse">
+Salva scheda
+</button>
+
+</div>
+
+</section>
+
+<!-- AGENDA -->
+
+<section class="section" data-page="agenda">
+
+<div class="eyebrow">Organizzazione</div>
+
+<h2 class="title">Agenda 📅</h2>
+
+<p class="subtitle">
+Veterinario, maniscalco, lezioni e impegni.
+</p>
+
+<form class="card stack" id="agendaForm">
+
+<div class="field">
+<label>Data</label>
+<input name="date" type="date" required>
+</div>
+
+<div class="field">
+<label>Tipo</label>
+
+<select name="type">
+<option>Veterinario</option>
+<option>Maniscalco</option>
+<option>Lezione</option>
+<option>Allenamento</option>
+<option>Altro</option>
+</select>
+
+</div>
+
+<div class="field">
+<label>Nota</label>
+<input name="note" placeholder="Dettagli">
+</div>
+
+<button class="btn">
+Aggiungi appuntamento
+</button>
+
+</form>
+
+<div class="list" id="agendaList"></div>
+
+</section>
+
+<!-- DIARIO -->
+
+<section class="section" data-page="diary">
+
+<div class="eyebrow">Allenamenti</div>
+
+<h2 class="title">Diario 📖</h2>
+
+<p class="subtitle">
+Tieni memoria del lavoro fatto insieme.
+</p>
+
+<form class="card stack" id="diaryForm">
+
+<div class="field">
+<label>Data</label>
+<input name="date" type="date" required>
+</div>
+
+<div class="field">
+<label>Attività</label>
+<input
+name="activity"
+placeholder="Es. lavoro in piano"
+required>
+</div>
+
+<div class="field">
+<label>Durata</label>
+<input
+name="duration"
+placeholder="Es. 45 min">
+</div>
+
+<div class="field">
+<label>Note</label>
+<textarea
+name="note"
+placeholder="Come è andata?"></textarea>
+</div>
+
+<button class="btn">
+Salva nel diario
+</button>
+
+</form>
+
+<div class="list" id="diaryList"></div>
+
+</section>
+
+<!-- SPESE -->
+
+<section class="section" data-page="expenses">
+
+<div class="eyebrow">Controllo</div>
+
+<h2 class="title">Spese 💳</h2>
+
+<p class="subtitle">
+Tieni d'occhio le spese del tuo cavallo.
+</p>
+
+<form class="card stack" id="expenseForm">
+
+<div class="field">
+<label>Data</label>
+<input name="date" type="date" required>
+</div>
+
+<div class="field">
+<label>Categoria</label>
+
+<select name="category">
+<option>Pensione</option>
+<option>Veterinario</option>
+<option>Maniscalco</option>
+<option>Attrezzatura</option>
+<option>Mangime</option>
+<option>Altro</option>
+</select>
+
+</div>
+
+<div class="field">
+<label>Importo (€)</label>
+
+<input
+name="amount"
+inputmode="decimal"
+placeholder="0,00"
+required>
+
+</div>
+
+<div class="field">
+<label>Nota</label>
+<input name="note" placeholder="Dettagli">
+</div>
+
+<button class="btn">
+Aggiungi spesa
+</button>
+
+</form>
+
+<div class="card row">
+
+<strong>Totale registrato</strong>
+
+<strong id="expenseTotal">
+€ 0,00
+</strong>
+
+</div>
+
+<div class="list" id="expenseList"></div>
+
+</section>
+
+<!-- BOX -->
+
+<section class="section" data-page="box">
+
+<div class="eyebrow">Routine quotidiana</div>
+
+<h2 class="title">Box 🏡</h2>
+
+<p class="subtitle">
+Tocca un punto del box per registrare quello che hai fatto.
+</p>
+
+<div class="card">
+
+<div class="stall">
+
+<div class="wall"></div>
+
+<div class="feedbox"></div>
+
+<div class="hay">🌾</div>
+
+<div class="bed"></div>
+
+<button
+class="hot feed"
+data-open="feed">
+Mangiatoia
+</button>
+
+<button
+class="hot bedding"
+data-open="bedding">
+Lettiera
+</button>
+
+</div>
+
+<p class="legend">
+Mangiatoia = cosa hai dato e quando.
+Lettiera = pulizia o cambio del pavimento del box.
+</p>
+
+</div>
+
+<h3 style="margin:18px 0 10px">
+Cronologia recente
+</h3>
+
+<div class="list" id="boxHistory"></div>
+
+</section>
+
+</div>
+
+<!-- BARRA IN BASSO -->
+
+<nav class="nav">
+
+<button class="active" data-go="home">
+<span>⌂</span>
+Home
+</button>
+
+<button data-go="horse">
+<span>♡</span>
+Cavallo
+</button>
+
+<button data-go="agenda">
+<span>▣</span>
+Agenda
+</button>
+
+<button data-go="diary">
+<span>▤</span>
+Diario
+</button>
+
+<button data-go="expenses">
+<span>▭</span>
+Spese
+</button>
+
+<button data-go="box">
+<span>🏡</span>
+Box
+</button>
+
+</nav>
+
+<!-- MANGIATOIA -->
+
+<div class="modal" id="feedModal">
+
+<div class="sheet">
+
+<div class="sheethead">
+
+<h3>Mangiatoia 🌾</h3>
+
+<button class="close" data-close>
+×
+</button>
+
+</div>
+
+<form id="feedForm" class="stack">
+
+<div class="field">
+
+<label>Giorno</label>
+
+<input
+name="date"
+type="date"
+required>
+
+</div>
+
+<div class="field">
+
+<label>
+Cosa gli hai dato?
+</label>
+
+<div class="checks">
+
+<label class="check">
+<input type="checkbox" value="Fieno">
+Fieno
+</label>
+
+<label class="check">
+<input type="checkbox" value="Crock">
+Crock
+</label>
+
+<label class="check">
+<input type="checkbox" value="Mangime">
+Mangime
+</label>
+
+<label class="check">
+<input type="checkbox" value="Carote">
+Carote
+</label>
+
+<label class="check">
+<input type="checkbox" value="Mele">
+Mele
+</label>
+
+<label class="check">
+<input type="checkbox" value="Altro">
+Altro
+</label>
+
+</div>
+
+</div>
+
+<div class="field">
+
+<label>
+Nota opzionale
+</label>
+
+<input
+name="note"
+placeholder="Quantità o dettagli">
+
+</div>
+
+<button class="btn">
+Salva pasto
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- LETTIERA -->
+
+<div class="modal" id="beddingModal">
+
+<div class="sheet">
+
+<div class="sheethead">
+
+<h3>Lettiera 🧹</h3>
+
+<button
+class="close"
+data-close>
+×
+</button>
+
+</div>
+
+<form id="beddingForm" class="stack">
+
+<div class="field">
+
+<label>Giorno</label>
+
+<input
+name="date"
+type="date"
+required>
+
+</div>
+
+<div class="field">
+
+<label>
+Cosa hai fatto?
+</label>
+
+<select name="action">
+
+<option>
+Pulizia del box
+</option>
+
+<option>
+Aggiunta lettiera
+</option>
+
+<option>
+Cambio completo lettiera
+</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>
+Nota opzionale
+</label>
+
+<input
+name="note"
+placeholder="Dettagli">
+
+</div>
+
+<button class="btn">
+Salva attività
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+(() => {
+
+const KEY = "horsecare_v1";
+
+const blank = {
+
+horse:{
+name:"",
+breed:"",
+birth:"",
+coat:"",
+notes:""
+},
+
+agenda:[],
+
+diary:[],
+
+expenses:[],
+
+box:{
+feed:[],
+bedding:[]
+}
+
+};
+
+let data = load();
+
+function load(){
+
+try{
+
+return Object.assign(
+structuredClone(blank),
+JSON.parse(localStorage.getItem(KEY) || "{}")
+);
+
+}
+
+catch(e){
+
+return JSON.parse(
+JSON.stringify(blank)
+);
+
+}
+
+}
+
+function save(){
+
+localStorage.setItem(
+KEY,
+JSON.stringify(data)
+);
+
+renderAll();
+
+}
+
+function today(){
+
+const d = new Date();
+
+return d.getFullYear()
++"-"
++String(d.getMonth()+1).padStart(2,"0")
++"-"
++String(d.getDate()).padStart(2,"0");
+
+}
+
+function esc(s){
+
+return String(s ?? "")
+.replace(
+/[&<>"']/g,
+m => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[m])
+);
+
+}
+
+function fmtDate(s){
+
+if(!s) return "";
+
+const [y,m,d] = s.split("-");
+
+return d+"/"+m+"/"+y;
+
+}
+
+function setToday(){
+
+document
+.querySelectorAll('input[type="date"]')
+.forEach(i => {
+
+if(!i.value)
+i.value = today();
+
+});
+
+}
+
+function go(page){
+
+document
+.querySelectorAll(".section")
+.forEach(s => {
+
+s.classList.toggle(
+"active",
+s.dataset.page === page
+);
+
+});
+
+document
+.querySelectorAll(".nav button")
+.forEach(b => {
+
+b.classList.toggle(
+"active",
+b.dataset.go === page
+);
+
+});
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+document
+.querySelectorAll("[data-go]")
+.forEach(b => {
+
+b.addEventListener(
+"click",
+() => go(b.dataset.go)
+);
+
+});
+
+const H = {
+
+name:horseName,
+breed:horseBreed,
+birth:horseBirth,
+coat:horseCoat,
+notes:horseNotes
+
+};
+
+function fillHorse(){
+
+Object.keys(H).forEach(k => {
+
+H[k].value =
+data.horse[k] || "";
+
+});
+
+}
+
+saveHorse.addEventListener(
+"click",
+() => {
+
+Object.keys(H).forEach(k => {
+
+data.horse[k] =
+H[k].value.trim();
+
+});
+
+save();
+
+}
+);
+
+/* AGENDA */
+
+agendaForm.addEventListener(
+"submit",
+e => {
+
+e.preventDefault();
+
+const f =
+new FormData(e.currentTarget);
+
+data.agenda.unshift({
+
+id:Date.now(),
+
+date:f.get("date"),
+
+type:f.get("type"),
+
+note:f.get("note")
+
+});
+
+e.currentTarget.reset();
+
+setToday();
+
+save();
+
+}
+);
+
+/* DIARIO */
+
+diaryForm.addEventListener(
+"submit",
+e => {
+
+e.preventDefault();
+
+const f =
+new FormData(e.currentTarget);
+
+data.diary.unshift({
+
+id:Date.now(),
+
+date:f.get("date"),
+
+activity:f.get("activity"),
+
+duration:f.get("duration"),
+
+note:f.get("note")
+
+});
+
+e.currentTarget.reset();
+
+setToday();
+
+save();
+
+}
+);
+
+/* SPESE */
+
+expenseForm.addEventListener(
+"submit",
+e => {
+
+e.preventDefault();
+
+const f =
+new FormData(e.currentTarget);
+
+const amount =
+parseFloat(
+String(f.get("amount"))
+.replace(",",".")
+);
+
+if(
+!Number.isFinite(amount)
+||
+amount < 0
+){
+
+alert(
+"Inserisci un importo valido."
+);
+
+return;
+
+}
+
+data.expenses.unshift({
+
+id:Date.now(),
+
+date:f.get("date"),
+
+category:f.get("category"),
+
+amount,
+
+note:f.get("note")
+
+});
+
+e.currentTarget.reset();
+
+setToday();
+
+save();
+
+}
+);
+
+/* MANGIATOIA */
+
+feedForm.addEventListener(
+"submit",
+e => {
+
+e.preventDefault();
+
+const f =
+new FormData(e.currentTarget);
+
+const foods =
+[
+...e.currentTarget
+.querySelectorAll(
+'input[type="checkbox"]:checked'
+)
+]
+.map(x => x.value);
+
+if(!foods.length){
+
+alert(
+"Seleziona almeno un alimento."
+);
+
+return;
+
+}
+
+data.box.feed.unshift({
+
+id:Date.now(),
+
+date:f.get("date"),
+
+foods,
+
+note:f.get("note")
+
+});
+
+e.currentTarget.reset();
+
+closeModals();
+
+setToday();
+
+save();
+
+}
+);
+
+/* LETTIERA */
+
+beddingForm.addEventListener(
+"submit",
+e => {
+
+e.preventDefault();
+
+const f =
+new FormData(e.currentTarget);
+
+data.box.bedding.unshift({
+
+id:Date.now(),
+
+date:f.get("date"),
+
+action:f.get("action"),
+
+note:f.get("note")
+
+});
+
+e.currentTarget.reset();
+
+closeModals();
+
+setToday();
+
+save();
+
+}
+);
+
+/* FINESTRE BOX */
+
+document
+.querySelectorAll("[data-open]")
+.forEach(b => {
+
+b.addEventListener(
+"click",
+() => {
+
+document
+.getElementById(
+b.dataset.open+"Modal"
+)
+.classList.add("open");
+
+}
+);
+
+});
+
+function closeModals(){
+
+document
+.querySelectorAll(".modal")
+.forEach(m => {
+
+m.classList.remove("open");
+
+});
+
+}
+
+document
+.querySelectorAll("[data-close]")
+.forEach(b => {
+
+b.addEventListener(
+"click",
+closeModals
+);
+
+});
+
+document
+.querySelectorAll(".modal")
+.forEach(m => {
+
+m.addEventListener(
+"click",
+e => {
+
+if(e.target === m)
+closeModals();
+
+}
+);
+
+});
+
+/* ELIMINA DATI */
+
+document.addEventListener(
+"click",
+e => {
+
+const b =
+e.target.closest("[data-del]");
+
+if(!b) return;
+
+const [kind,id] =
+b.dataset.del.split(":");
+
+const n =
+Number(id);
+
+if(kind === "agenda")
+
+data.agenda =
+data.agenda.filter(
+x => x.id !== n
+);
+
+if(kind === "diary")
+
+data.diary =
+data.diary.filter(
+x => x.id !== n
+);
+
+if(kind === "expense")
+
+data.expenses =
+data.expenses.filter(
+x => x.id !== n
+);
+
+if(kind === "feed")
+
+data.box.feed =
+data.box.feed.filter(
+x => x.id !== n
+);
+
+if(kind === "bedding")
+
+data.box.bedding =
+data.box.bedding.filter(
+x => x.id !== n
+);
+
+save();
+
+}
+);
+
+function item(html,del){
+
+return `
+<div class="item">
+
+${html}
+
+<div class="actions">
+
+<button
+class="delete"
+data-del="${del}">
+Elimina
+</button>
+
+</div>
+
+</div>
+`;
+
+}
+
+function renderAll(){
+
+const n =
+data.horse.name
+||
+"il tuo cavallo";
+
+homeHorse.textContent = n;
+
+heroHorse.textContent =
+data.horse.name
+||
+"Da compilare";
+
+const now = today();
+
+statAgenda.textContent =
+data.agenda
+.filter(x => x.date >= now)
+.length;
+
+statSpese.textContent =
+data.expenses.length;
+
+statFeed.textContent =
+data.box.feed.length;
+
+statBed.textContent =
+data.box.bedding.length;
+
+/* AGENDA */
+
+agendaList.innerHTML =
+
+data.agenda.length
+
+?
+
+data.agenda.map(x =>
+
+item(
+
+`
+<b>${esc(x.type)}</b>
+
+<br>
+
+<small>
+${fmtDate(x.date)}
+</small>
+
+${x.note
+?
+`<p>${esc(x.note)}</p>`
+:
+""
+}
+`,
+
+`agenda:${x.id}`
+
+)
+
+).join("")
+
+:
+
+'<div class="empty">Nessun appuntamento.</div>';
+
+/* DIARIO */
+
+diaryList.innerHTML =
+
+data.diary.length
+
+?
+
+data.diary.map(x =>
+
+item(
+
+`
+<b>${esc(x.activity)}</b>
+
+<br>
+
+<small>
+
+${fmtDate(x.date)}
+
+${x.duration
+?
+" · "+esc(x.duration)
+:
+""
+}
+
+</small>
+
+${x.note
+?
+`<p>${esc(x.note)}</p>`
+:
+""
+}
+`,
+
+`diary:${x.id}`
+
+)
+
+).join("")
+
+:
+
+'<div class="empty">Nessuna voce nel diario.</div>';
+
+/* SPESE */
+
+const total =
+data.expenses.reduce(
+(s,x) =>
+s + Number(x.amount || 0),
+0
+);
+
+expenseTotal.textContent =
+new Intl.NumberFormat(
+"it-IT",
+{
+style:"currency",
+currency:"EUR"
+}
+)
+.format(total);
+
+expenseList.innerHTML =
+
+data.expenses.length
+
+?
+
+data.expenses.map(x =>
+
+item(
+
+`
+<b>${esc(x.category)}</b>
+
+·
+
+${
+new Intl.NumberFormat(
+"it-IT",
+{
+style:"currency",
+currency:"EUR"
+}
+).format(x.amount)
+}
+
+<br>
+
+<small>
+${fmtDate(x.date)}
+</small>
+
+${x.note
+?
+`<p>${esc(x.note)}</p>`
+:
+""
+}
+`,
+
+`expense:${x.id}`
+
+)
+
+).join("")
+
+:
+
+'<div class="empty">Nessuna spesa registrata.</div>';
+
+/* CRONOLOGIA BOX */
+
+const hist = [
+
+...data.box.feed.map(
+x => ({
+...x,
+kind:"feed"
+})
+),
+
+...data.box.bedding.map(
+x => ({
+...x,
+kind:"bedding"
+})
+)
+
+]
+.sort(
+(a,b) =>
+b.date.localeCompare(a.date)
+||
+b.id-a.id
+);
+
+boxHistory.innerHTML =
+
+hist.length
+
+?
+
+hist.map(x =>
+
+x.kind === "feed"
+
+?
+
+item(
+
+`
+<b>🌾 Mangiatoia</b>
+
+<br>
+
+<small>
+${fmtDate(x.date)}
+</small>
+
+<p>
+
+${esc(x.foods.join(", "))}
+
+${x.note
+?
+" · "+esc(x.note)
+:
+""
+}
+
+</p>
+`,
+
+`feed:${x.id}`
+
+)
+
+:
+
+item(
+
+`
+<b>🧹 Lettiera</b>
+
+<br>
+
+<small>
+${fmtDate(x.date)}
+</small>
+
+<p>
+
+${esc(x.action)}
+
+${x.note
+?
+" · "+esc(x.note)
+:
+""
+}
+
+</p>
+`,
+
+`bedding:${x.id}`
+
+)
+
+).join("")
+
+:
+
+'<div class="empty">Ancora nessuna attività nel box.</div>';
+
+}
+
+/* BACKUP */
+
+backupBtn.addEventListener(
+"click",
+() => {
+
+const choice =
+confirm(
+"Vuoi creare una copia di backup dei dati? Premi OK per esportare, Annulla per importare un backup."
+);
+
+if(choice){
+
+const blob =
+new Blob(
+[
+JSON.stringify(
+data,
+null,
+2
+)
+],
+{
+type:"application/json"
+}
+);
+
+const a =
+document.createElement("a");
+
+a.href =
+URL.createObjectURL(blob);
+
+a.download =
+"horsecare-backup.json";
+
+a.click();
+
+setTimeout(
+() =>
+URL.revokeObjectURL(a.href),
+500
+);
+
+}
+
+else{
+
+const inp =
+document.createElement("input");
+
+inp.type =
+"file";
+
+inp.accept =
+"application/json";
+
+inp.onchange =
+() => {
+
+const f =
+inp.files[0];
+
+if(!f) return;
+
+const r =
+new FileReader();
+
+r.onload =
+() => {
+
+try{
+
+data =
+Object.assign(
+structuredClone(blank),
+JSON.parse(r.result)
+);
+
+save();
+
+fillHorse();
+
+alert(
+"Backup importato."
+);
+
+}
+
+catch(e){
+
+alert(
+"File di backup non valido."
+);
+
+}
+
+};
+
+r.readAsText(f);
+
+};
+
+inp.click();
+
+}
+
+}
+);
+
+fillHorse();
+
+setToday();
+
+renderAll();
+
+})();
+
+</script>
+
+</body>
+</html>
