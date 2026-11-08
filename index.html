@@ -384,8 +384,6 @@ textarea{
 
 .check input{width:auto}
 
-/* FINESTRE */
-
 .modal{
   position:fixed;
   inset:0;
@@ -464,8 +462,6 @@ textarea{
   <button class="gear" id="backupBtn">⚙️</button>
 </header>
 
-<!-- HOME -->
-
 <section class="section active" data-page="home">
 
 <div class="eyebrow">Oggi</div>
@@ -518,8 +514,6 @@ Pulizie lettiera
 
 </section>
 
-<!-- CAVALLO -->
-
 <section class="section" data-page="horse">
 
 <div class="eyebrow">La sua storia</div>
@@ -554,8 +548,7 @@ La sua scheda personale.
 
 <div class="field">
 <label>Note</label>
-<textarea id="horseNotes"
-placeholder="Informazioni importanti"></textarea>
+<textarea id="horseNotes" placeholder="Informazioni importanti"></textarea>
 </div>
 
 <button class="btn" id="saveHorse">
@@ -565,8 +558,6 @@ Salva scheda
 </div>
 
 </section>
-
-<!-- AGENDA -->
 
 <section class="section" data-page="agenda">
 
@@ -613,8 +604,6 @@ Aggiungi appuntamento
 
 </section>
 
-<!-- DIARIO -->
-
 <section class="section" data-page="diary">
 
 <div class="eyebrow">Allenamenti</div>
@@ -634,24 +623,17 @@ Tieni memoria del lavoro fatto insieme.
 
 <div class="field">
 <label>Attività</label>
-<input
-name="activity"
-placeholder="Es. lavoro in piano"
-required>
+<input name="activity" placeholder="Es. lavoro in piano" required>
 </div>
 
 <div class="field">
 <label>Durata</label>
-<input
-name="duration"
-placeholder="Es. 45 min">
+<input name="duration" placeholder="Es. 45 min">
 </div>
 
 <div class="field">
 <label>Note</label>
-<textarea
-name="note"
-placeholder="Come è andata?"></textarea>
+<textarea name="note" placeholder="Come è andata?"></textarea>
 </div>
 
 <button class="btn">
@@ -663,8 +645,6 @@ Salva nel diario
 <div class="list" id="diaryList"></div>
 
 </section>
-
-<!-- SPESE -->
 
 <section class="section" data-page="expenses">
 
@@ -699,13 +679,7 @@ Tieni d'occhio le spese del tuo cavallo.
 
 <div class="field">
 <label>Importo (€)</label>
-
-<input
-name="amount"
-inputmode="decimal"
-placeholder="0,00"
-required>
-
+<input name="amount" inputmode="decimal" placeholder="0,00" required>
 </div>
 
 <div class="field">
@@ -733,8 +707,6 @@ Aggiungi spesa
 
 </section>
 
-<!-- BOX -->
-
 <section class="section" data-page="box">
 
 <div class="eyebrow">Routine quotidiana</div>
@@ -750,22 +722,15 @@ Tocca un punto del box per registrare quello che hai fatto.
 <div class="stall">
 
 <div class="wall"></div>
-
 <div class="feedbox"></div>
-
 <div class="hay">🌾</div>
-
 <div class="bed"></div>
 
-<button
-class="hot feed"
-data-open="feed">
+<button class="hot feed" data-open="feed">
 Mangiatoia
 </button>
 
-<button
-class="hot bedding"
-data-open="bedding">
+<button class="hot bedding" data-open="bedding">
 Lettiera
 </button>
 
@@ -787,8 +752,6 @@ Cronologia recente
 </section>
 
 </div>
-
-<!-- BARRA IN BASSO -->
 
 <nav class="nav">
 
@@ -824,8 +787,6 @@ Box
 
 </nav>
 
-<!-- MANGIATOIA -->
-
 <div class="modal" id="feedModal">
 
 <div class="sheet">
@@ -846,29 +807,19 @@ Box
 
 <label>Giorno</label>
 
-<input
-name="date"
-type="date"
-required>
+<input name="date" type="date" required>
 
 </div>
 
 <div class="field">
 
-<label>
-Cosa gli hai dato?
-</label>
+<label>Cosa gli hai dato?</label>
 
 <div class="checks">
 
 <label class="check">
-<input type="checkbox" value="Fieno">
-Fieno
-</label>
-
-<label class="check">
-<input type="checkbox" value="Crock">
-Crock
+<input type="checkbox" value="Fieno Crock">
+Fieno Crock
 </label>
 
 <label class="check">
@@ -897,13 +848,9 @@ Altro
 
 <div class="field">
 
-<label>
-Nota opzionale
-</label>
+<label>Nota opzionale</label>
 
-<input
-name="note"
-placeholder="Quantità o dettagli">
+<input name="note" placeholder="Quantità o dettagli">
 
 </div>
 
@@ -917,8 +864,6 @@ Salva pasto
 
 </div>
 
-<!-- LETTIERA -->
-
 <div class="modal" id="beddingModal">
 
 <div class="sheet">
@@ -927,9 +872,7 @@ Salva pasto
 
 <h3>Lettiera 🧹</h3>
 
-<button
-class="close"
-data-close>
+<button class="close" data-close>
 ×
 </button>
 
@@ -941,46 +884,27 @@ data-close>
 
 <label>Giorno</label>
 
-<input
-name="date"
-type="date"
-required>
+<input name="date" type="date" required>
 
 </div>
 
 <div class="field">
 
-<label>
-Cosa hai fatto?
-</label>
+<label>Cosa hai fatto?</label>
 
 <select name="action">
-
-<option>
-Pulizia del box
-</option>
-
-<option>
-Aggiunta lettiera
-</option>
-
-<option>
-Cambio completo lettiera
-</option>
-
+<option>Pulizia del box</option>
+<option>Aggiunta lettiera</option>
+<option>Cambio completo lettiera</option>
 </select>
 
 </div>
 
 <div class="field">
 
-<label>
-Nota opzionale
-</label>
+<label>Nota opzionale</label>
 
-<input
-name="note"
-placeholder="Dettagli">
+<input name="note" placeholder="Dettagli">
 
 </div>
 
@@ -1001,7 +925,6 @@ Salva attività
 const KEY = "horsecare_v1";
 
 const blank = {
-
 horse:{
 name:"",
 breed:"",
@@ -1009,70 +932,45 @@ birth:"",
 coat:"",
 notes:""
 },
-
 agenda:[],
-
 diary:[],
-
 expenses:[],
-
 box:{
 feed:[],
 bedding:[]
 }
-
 };
 
 let data = load();
 
 function load(){
-
 try{
-
 return Object.assign(
 structuredClone(blank),
 JSON.parse(localStorage.getItem(KEY) || "{}")
 );
-
 }
-
 catch(e){
-
-return JSON.parse(
-JSON.stringify(blank)
-);
-
+return JSON.parse(JSON.stringify(blank));
 }
-
 }
 
 function save(){
-
-localStorage.setItem(
-KEY,
-JSON.stringify(data)
-);
-
+localStorage.setItem(KEY,JSON.stringify(data));
 renderAll();
-
 }
 
 function today(){
-
 const d = new Date();
-
 return d.getFullYear()
 +"-"
 +String(d.getMonth()+1).padStart(2,"0")
 +"-"
 +String(d.getDate()).padStart(2,"0");
-
 }
 
 function esc(s){
-
-return String(s ?? "")
-.replace(
+return String(s ?? "").replace(
 /[&<>"']/g,
 m => ({
 "&":"&amp;",
@@ -1082,580 +980,285 @@ m => ({
 "'":"&#39;"
 }[m])
 );
-
 }
 
 function fmtDate(s){
-
 if(!s) return "";
-
 const [y,m,d] = s.split("-");
-
 return d+"/"+m+"/"+y;
-
 }
 
 function setToday(){
-
-document
-.querySelectorAll('input[type="date"]')
-.forEach(i => {
-
-if(!i.value)
-i.value = today();
-
+document.querySelectorAll('input[type="date"]').forEach(i => {
+if(!i.value) i.value = today();
 });
-
 }
 
 function go(page){
-
-document
-.querySelectorAll(".section")
-.forEach(s => {
-
-s.classList.toggle(
-"active",
-s.dataset.page === page
-);
-
+document.querySelectorAll(".section").forEach(s => {
+s.classList.toggle("active",s.dataset.page === page);
 });
 
-document
-.querySelectorAll(".nav button")
-.forEach(b => {
-
-b.classList.toggle(
-"active",
-b.dataset.go === page
-);
-
+document.querySelectorAll(".nav button").forEach(b => {
+b.classList.toggle("active",b.dataset.go === page);
 });
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
-document
-.querySelectorAll("[data-go]")
-.forEach(b => {
-
-b.addEventListener(
-"click",
-() => go(b.dataset.go)
-);
-
+document.querySelectorAll("[data-go]").forEach(b => {
+b.addEventListener("click",() => go(b.dataset.go));
 });
 
 const H = {
-
 name:horseName,
 breed:horseBreed,
 birth:horseBirth,
 coat:horseCoat,
 notes:horseNotes
-
 };
 
 function fillHorse(){
-
 Object.keys(H).forEach(k => {
-
-H[k].value =
-data.horse[k] || "";
-
+H[k].value = data.horse[k] || "";
 });
-
 }
 
-saveHorse.addEventListener(
-"click",
-() => {
-
+saveHorse.addEventListener("click",() => {
 Object.keys(H).forEach(k => {
-
-data.horse[k] =
-H[k].value.trim();
-
+data.horse[k] = H[k].value.trim();
 });
-
 save();
+});
 
-}
-);
-
-/* AGENDA */
-
-agendaForm.addEventListener(
-"submit",
-e => {
-
+agendaForm.addEventListener("submit",e => {
 e.preventDefault();
 
-const f =
-new FormData(e.currentTarget);
+const f = new FormData(e.currentTarget);
 
 data.agenda.unshift({
-
 id:Date.now(),
-
 date:f.get("date"),
-
 type:f.get("type"),
-
 note:f.get("note")
-
 });
 
 e.currentTarget.reset();
-
 setToday();
-
 save();
+});
 
-}
-);
-
-/* DIARIO */
-
-diaryForm.addEventListener(
-"submit",
-e => {
-
+diaryForm.addEventListener("submit",e => {
 e.preventDefault();
 
-const f =
-new FormData(e.currentTarget);
+const f = new FormData(e.currentTarget);
 
 data.diary.unshift({
-
 id:Date.now(),
-
 date:f.get("date"),
-
 activity:f.get("activity"),
-
 duration:f.get("duration"),
-
 note:f.get("note")
-
 });
 
 e.currentTarget.reset();
-
 setToday();
-
 save();
+});
 
-}
-);
-
-/* SPESE */
-
-expenseForm.addEventListener(
-"submit",
-e => {
-
+expenseForm.addEventListener("submit",e => {
 e.preventDefault();
 
-const f =
-new FormData(e.currentTarget);
+const f = new FormData(e.currentTarget);
 
-const amount =
-parseFloat(
-String(f.get("amount"))
-.replace(",",".")
+const amount = parseFloat(
+String(f.get("amount")).replace(",",".")
 );
 
-if(
-!Number.isFinite(amount)
-||
-amount < 0
-){
-
-alert(
-"Inserisci un importo valido."
-);
-
+if(!Number.isFinite(amount) || amount < 0){
+alert("Inserisci un importo valido.");
 return;
-
 }
 
 data.expenses.unshift({
-
 id:Date.now(),
-
 date:f.get("date"),
-
 category:f.get("category"),
-
 amount,
-
 note:f.get("note")
-
 });
 
 e.currentTarget.reset();
-
 setToday();
-
 save();
+});
 
-}
-);
-
-/* MANGIATOIA */
-
-feedForm.addEventListener(
-"submit",
-e => {
-
+feedForm.addEventListener("submit",e => {
 e.preventDefault();
 
-const f =
-new FormData(e.currentTarget);
+const f = new FormData(e.currentTarget);
 
-const foods =
-[
-...e.currentTarget
-.querySelectorAll(
+const foods = [
+...e.currentTarget.querySelectorAll(
 'input[type="checkbox"]:checked'
 )
-]
-.map(x => x.value);
+].map(x => x.value);
 
 if(!foods.length){
-
-alert(
-"Seleziona almeno un alimento."
-);
-
+alert("Seleziona almeno un alimento.");
 return;
-
 }
 
 data.box.feed.unshift({
-
 id:Date.now(),
-
 date:f.get("date"),
-
 foods,
-
 note:f.get("note")
-
 });
 
 e.currentTarget.reset();
-
 closeModals();
-
 setToday();
-
 save();
+});
 
-}
-);
-
-/* LETTIERA */
-
-beddingForm.addEventListener(
-"submit",
-e => {
-
+beddingForm.addEventListener("submit",e => {
 e.preventDefault();
 
-const f =
-new FormData(e.currentTarget);
+const f = new FormData(e.currentTarget);
 
 data.box.bedding.unshift({
-
 id:Date.now(),
-
 date:f.get("date"),
-
 action:f.get("action"),
-
 note:f.get("note")
-
 });
 
 e.currentTarget.reset();
-
 closeModals();
-
 setToday();
-
 save();
+});
 
-}
-);
-
-/* FINESTRE BOX */
-
-document
-.querySelectorAll("[data-open]")
-.forEach(b => {
-
-b.addEventListener(
-"click",
-() => {
-
-document
-.getElementById(
+document.querySelectorAll("[data-open]").forEach(b => {
+b.addEventListener("click",() => {
+document.getElementById(
 b.dataset.open+"Modal"
-)
-.classList.add("open");
-
-}
-);
-
+).classList.add("open");
+});
 });
 
 function closeModals(){
-
-document
-.querySelectorAll(".modal")
-.forEach(m => {
-
+document.querySelectorAll(".modal").forEach(m => {
 m.classList.remove("open");
-
 });
-
 }
 
-document
-.querySelectorAll("[data-close]")
-.forEach(b => {
-
-b.addEventListener(
-"click",
-closeModals
-);
-
+document.querySelectorAll("[data-close]").forEach(b => {
+b.addEventListener("click",closeModals);
 });
 
-document
-.querySelectorAll(".modal")
-.forEach(m => {
-
-m.addEventListener(
-"click",
-e => {
-
-if(e.target === m)
-closeModals();
-
-}
-);
-
+document.querySelectorAll(".modal").forEach(m => {
+m.addEventListener("click",e => {
+if(e.target === m) closeModals();
+});
 });
 
-/* ELIMINA DATI */
-
-document.addEventListener(
-"click",
-e => {
-
-const b =
-e.target.closest("[data-del]");
+document.addEventListener("click",e => {
+const b = e.target.closest("[data-del]");
 
 if(!b) return;
 
-const [kind,id] =
-b.dataset.del.split(":");
-
-const n =
-Number(id);
+const [kind,id] = b.dataset.del.split(":");
+const n = Number(id);
 
 if(kind === "agenda")
-
-data.agenda =
-data.agenda.filter(
-x => x.id !== n
-);
+data.agenda = data.agenda.filter(x => x.id !== n);
 
 if(kind === "diary")
-
-data.diary =
-data.diary.filter(
-x => x.id !== n
-);
+data.diary = data.diary.filter(x => x.id !== n);
 
 if(kind === "expense")
-
-data.expenses =
-data.expenses.filter(
-x => x.id !== n
-);
+data.expenses = data.expenses.filter(x => x.id !== n);
 
 if(kind === "feed")
-
-data.box.feed =
-data.box.feed.filter(
-x => x.id !== n
-);
+data.box.feed = data.box.feed.filter(x => x.id !== n);
 
 if(kind === "bedding")
-
-data.box.bedding =
-data.box.bedding.filter(
-x => x.id !== n
-);
+data.box.bedding = data.box.bedding.filter(x => x.id !== n);
 
 save();
-
-}
-);
+});
 
 function item(html,del){
-
 return `
 <div class="item">
-
 ${html}
-
 <div class="actions">
-
-<button
-class="delete"
-data-del="${del}">
+<button class="delete" data-del="${del}">
 Elimina
 </button>
-
 </div>
-
 </div>
 `;
-
 }
 
 function renderAll(){
 
-const n =
-data.horse.name
-||
-"il tuo cavallo";
+const n = data.horse.name || "il tuo cavallo";
 
 homeHorse.textContent = n;
-
-heroHorse.textContent =
-data.horse.name
-||
-"Da compilare";
+heroHorse.textContent = data.horse.name || "Da compilare";
 
 const now = today();
 
 statAgenda.textContent =
-data.agenda
-.filter(x => x.date >= now)
-.length;
+data.agenda.filter(x => x.date >= now).length;
 
-statSpese.textContent =
-data.expenses.length;
-
-statFeed.textContent =
-data.box.feed.length;
-
-statBed.textContent =
-data.box.bedding.length;
-
-/* AGENDA */
+statSpese.textContent = data.expenses.length;
+statFeed.textContent = data.box.feed.length;
+statBed.textContent = data.box.bedding.length;
 
 agendaList.innerHTML =
-
 data.agenda.length
-
 ?
-
 data.agenda.map(x =>
-
 item(
-
 `
 <b>${esc(x.type)}</b>
-
 <br>
-
-<small>
-${fmtDate(x.date)}
-</small>
-
-${x.note
-?
-`<p>${esc(x.note)}</p>`
-:
-""
-}
+<small>${fmtDate(x.date)}</small>
+${x.note ? `<p>${esc(x.note)}</p>` : ""}
 `,
-
 `agenda:${x.id}`
-
 )
-
 ).join("")
-
 :
-
 '<div class="empty">Nessun appuntamento.</div>';
 
-/* DIARIO */
-
 diaryList.innerHTML =
-
 data.diary.length
-
 ?
-
 data.diary.map(x =>
-
 item(
-
 `
 <b>${esc(x.activity)}</b>
-
 <br>
-
 <small>
-
 ${fmtDate(x.date)}
-
-${x.duration
-?
-" · "+esc(x.duration)
-:
-""
-}
-
+${x.duration ? " · "+esc(x.duration) : ""}
 </small>
-
-${x.note
-?
-`<p>${esc(x.note)}</p>`
-:
-""
-}
+${x.note ? `<p>${esc(x.note)}</p>` : ""}
 `,
-
 `diary:${x.id}`
-
 )
-
 ).join("")
-
 :
-
 '<div class="empty">Nessuna voce nel diario.</div>';
-
-/* SPESE */
 
 const total =
 data.expenses.reduce(
-(s,x) =>
-s + Number(x.amount || 0),
+(s,x) => s + Number(x.amount || 0),
 0
 );
 
@@ -1666,76 +1269,42 @@ new Intl.NumberFormat(
 style:"currency",
 currency:"EUR"
 }
-)
-.format(total);
+).format(total);
 
 expenseList.innerHTML =
-
 data.expenses.length
-
 ?
-
 data.expenses.map(x =>
-
 item(
-
 `
 <b>${esc(x.category)}</b>
-
 ·
-
-${
-new Intl.NumberFormat(
+${new Intl.NumberFormat(
 "it-IT",
 {
 style:"currency",
 currency:"EUR"
 }
-).format(x.amount)
-}
-
+).format(x.amount)}
 <br>
-
-<small>
-${fmtDate(x.date)}
-</small>
-
-${x.note
-?
-`<p>${esc(x.note)}</p>`
-:
-""
-}
+<small>${fmtDate(x.date)}</small>
+${x.note ? `<p>${esc(x.note)}</p>` : ""}
 `,
-
 `expense:${x.id}`
-
 )
-
 ).join("")
-
 :
-
 '<div class="empty">Nessuna spesa registrata.</div>';
 
-/* CRONOLOGIA BOX */
-
 const hist = [
-
-...data.box.feed.map(
-x => ({
+...data.box.feed.map(x => ({
 ...x,
 kind:"feed"
-})
-),
-
-...data.box.bedding.map(
-x => ({
+})),
+...data.box.bedding.map(x => ({
 ...x,
 kind:"bedding"
-})
-)
-
+}))
 ]
 .sort(
 (a,b) =>
@@ -1745,90 +1314,43 @@ b.id-a.id
 );
 
 boxHistory.innerHTML =
-
 hist.length
-
 ?
-
 hist.map(x =>
-
 x.kind === "feed"
-
 ?
-
 item(
-
 `
 <b>🌾 Mangiatoia</b>
-
 <br>
-
-<small>
-${fmtDate(x.date)}
-</small>
-
+<small>${fmtDate(x.date)}</small>
 <p>
-
 ${esc(x.foods.join(", "))}
-
-${x.note
-?
-" · "+esc(x.note)
-:
-""
-}
-
+${x.note ? " · "+esc(x.note) : ""}
 </p>
 `,
-
 `feed:${x.id}`
-
 )
-
 :
-
 item(
-
 `
 <b>🧹 Lettiera</b>
-
 <br>
-
-<small>
-${fmtDate(x.date)}
-</small>
-
+<small>${fmtDate(x.date)}</small>
 <p>
-
 ${esc(x.action)}
-
-${x.note
-?
-" · "+esc(x.note)
-:
-""
-}
-
+${x.note ? " · "+esc(x.note) : ""}
 </p>
 `,
-
 `bedding:${x.id}`
-
 )
-
 ).join("")
-
 :
-
 '<div class="empty">Ancora nessuna attività nel box.</div>';
 
 }
 
-/* BACKUP */
-
-backupBtn.addEventListener(
-"click",
-() => {
+backupBtn.addEventListener("click",() => {
 
 const choice =
 confirm(
@@ -1840,60 +1362,41 @@ if(choice){
 const blob =
 new Blob(
 [
-JSON.stringify(
-data,
-null,
-2
-)
+JSON.stringify(data,null,2)
 ],
 {
 type:"application/json"
 }
 );
 
-const a =
-document.createElement("a");
+const a = document.createElement("a");
 
-a.href =
-URL.createObjectURL(blob);
-
-a.download =
-"horsecare-backup.json";
-
+a.href = URL.createObjectURL(blob);
+a.download = "horsecare-backup.json";
 a.click();
 
 setTimeout(
-() =>
-URL.revokeObjectURL(a.href),
+() => URL.revokeObjectURL(a.href),
 500
 );
 
 }
-
 else{
 
-const inp =
-document.createElement("input");
+const inp = document.createElement("input");
 
-inp.type =
-"file";
+inp.type = "file";
+inp.accept = "application/json";
 
-inp.accept =
-"application/json";
+inp.onchange = () => {
 
-inp.onchange =
-() => {
-
-const f =
-inp.files[0];
+const f = inp.files[0];
 
 if(!f) return;
 
-const r =
-new FileReader();
+const r = new FileReader();
 
-r.onload =
-() => {
+r.onload = () => {
 
 try{
 
@@ -1904,20 +1407,14 @@ JSON.parse(r.result)
 );
 
 save();
-
 fillHorse();
 
-alert(
-"Backup importato."
-);
+alert("Backup importato.");
 
 }
-
 catch(e){
 
-alert(
-"File di backup non valido."
-);
+alert("File di backup non valido.");
 
 }
 
@@ -1931,13 +1428,10 @@ inp.click();
 
 }
 
-}
-);
+});
 
 fillHorse();
-
 setToday();
-
 renderAll();
 
 })();
